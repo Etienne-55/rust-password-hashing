@@ -16,3 +16,6 @@ def somar_valores_do_vetor(vetor):
    
     soma = vetor[x] + vetor[y]
     return soma
+
+def teste():
+    return teste
