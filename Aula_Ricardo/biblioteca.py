@@ -38,3 +38,21 @@ def descobrir_maior_menor(vetor):
                 menor = vetor[i]
         
         return maior, menor
+
+def subtrair_vetores():
+
+    vetor_a = []
+    vetor_b = []
+    vetor_c = []
+    for i in range(2):
+        vetor_a.append(int(input("Digite o elemento %d do vetor A: " % i)))
+        vetor_b.append(int(input("Digite o elemento %d do vetor B: " % i)))
+
+    for i in range(2):
+        vetor_c.append(vetor_a[i] - vetor_b[i])
+
+    print("Vetor C:")
+    for i in range(2):
+        print(vetor_c[i])
+    
+    return vetor_c

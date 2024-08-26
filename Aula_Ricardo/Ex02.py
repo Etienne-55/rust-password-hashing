@@ -1,3 +1,5 @@
+#descobrir o maior e o menor elemento de um vetor.
+
 from biblioteca import criar_vetor_zerado, descobrir_maior_menor
 
 def main():
