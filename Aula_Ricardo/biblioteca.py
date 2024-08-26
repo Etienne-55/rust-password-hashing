@@ -56,3 +56,25 @@ def subtrair_vetores():
         print(vetor_c[i])
     
     return vetor_c
+
+
+def adicionar_numeros(n):
+
+    numeros = []
+    numeros_pares = []
+    numeros_impares = []
+    soma_pares = 0
+
+    for i in range(6):
+        numeros.append(int(input("Digite um número: ")))
+    return numeros, numeros_pares, numeros_impares, soma_pares
+
+def somar_numeros_pares(numeros, numeros_pares, numeros_impares, soma_pares):
+
+    for numero in numeros:
+        if numero % 2 == 0:
+            numeros_pares.append(numero)
+            soma_pares += numero
+        else:
+            numeros_impares.append(numero)
+    return numeros_pares, numeros_impares, soma_pares
