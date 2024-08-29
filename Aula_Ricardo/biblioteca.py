@@ -1,3 +1,6 @@
+import json
+import re
+
 def criar_vetor():
     
     vetor = [0] * 8
@@ -78,3 +81,70 @@ def somar_numeros_pares(numeros, numeros_pares, numeros_impares, soma_pares):
         else:
             numeros_impares.append(numero)
     return numeros_pares, numeros_impares, soma_pares
+
+def coletar_dados():
+    
+    dados = []
+    while True:
+        nome = input("Digite o nome (ou 'sair' para encerrar): ")
+        if nome.lower() == 'sair':
+            break
+        idade = input("Digite a idade: ")
+        try:
+            idade = int(idade)
+        except ValueError:
+            print("Idade deve ser um número inteiro. Tente novamente.")
+            continue
+        
+        dados.append({'nome': nome, 'idade': idade})
+    return dados
+
+def salvar_em_arquivo(dados, nome_arquivo):
+    
+    with open(nome_arquivo, 'w') as arquivo:
+        for item in dados:
+            linha = f"Nome: {item['nome']}, Idade: {item['idade']}\n"
+            arquivo.write(linha)
+
+def validar_numero(numero):
+    
+    padrao = re.compile(r"^\(\d{2}\) \d{5}-\d{4}$")
+    return bool(padrao.match(numero))
+
+def coletar_dados():
+    
+    contatos = {}
+    while True:
+        nome = input("Digite o nome do contato (ou 'sair' para encerrar): ")
+        if nome.lower() == 'sair':
+            break
+
+        numero = input("Digite o número de telefone (formato: (11) 12345-6789): ")
+        if not validar_numero(numero):
+            print("Número de telefone inválido. Tente novamente.")
+            continue
+
+        contatos[nome] = numero
+    return contatos
+
+def salvar_em_arquivo(contatos, nome_arquivo):
+    
+    with open(nome_arquivo, 'w') as arquivo:
+        json.dump(contatos, arquivo, indent=4)
+
+def carregar_do_arquivo(nome_arquivo):
+    
+    try:
+        with open(nome_arquivo, 'r') as arquivo:
+            contatos = json.load(arquivo)
+    except FileNotFoundError:
+        contatos = {}
+    return contatos
+
+def exibir_contatos(contatos):
+    
+    if contatos:
+        for nome, numero in contatos.items():
+            print(f"Nome: {nome}, Telefone: {numero}")
+    else:
+        print("Nenhum contato encontrado.")
