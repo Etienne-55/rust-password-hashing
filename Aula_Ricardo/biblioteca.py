@@ -1,5 +1,6 @@
 import json
 import re
+import random
 
 def criar_vetor():
     
@@ -148,3 +149,14 @@ def exibir_contatos(contatos):
             print(f"Nome: {nome}, Telefone: {numero}")
     else:
         print("Nenhum contato encontrado.")
+
+def gerar_cartela():
+    numeros = set()
+    cartela = []
+    for i in range(5):
+        numero = random.randint(0, 99)
+        while numero in numeros:
+            numero = random.randint(0, 99)
+        numeros.add(numero)
+        cartela.append(numero)
+    return cartela
