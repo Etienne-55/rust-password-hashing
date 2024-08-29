@@ -160,3 +160,17 @@ def gerar_cartela():
         numeros.add(numero)
         cartela.append(numero)
     return cartela
+
+def gerar_cartela_completa():
+    numeros = set()
+    cartela = []
+    for i in range(5):
+        linha = []
+        for j in range(5):
+            numero = random.randint(0, 99)
+            while numero in numeros:
+                numero = random.randint(0, 99)
+            numeros.add(numero)
+            linha.append(numero)
+        cartela.append(linha)
+    return cartela
