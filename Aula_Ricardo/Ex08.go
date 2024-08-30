@@ -1,3 +1,5 @@
+//Maior e menor valor do array e sua média
+
 package main
 
 import (
