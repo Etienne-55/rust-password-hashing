@@ -3,8 +3,8 @@ use sha2::{Sha256, Digest};
 
 pub fn add_user() -> (String, String) {
 
-    let email = String::new();
-    let password = String::new();
+    let _email = String::new();
+    let _password = String::new();
 
 
     println!("Enter your email: ");
